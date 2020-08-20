@@ -2,7 +2,7 @@ from keras.models import Sequential, load_model
 from keras.layers import Dense, Activation, Dropout
 from keras import backend as k
 from keras.optimizers import SGD
-from app.chatbot.preprocessor import *
+from chatbot.preprocessor import *
 import tensorflow as tf
 import matplotlib.pyplot as plt
 

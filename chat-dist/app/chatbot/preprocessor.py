@@ -1,3 +1,4 @@
+import nltk
 from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
 from nltk.stem import SnowballStemmer
@@ -6,7 +7,7 @@ from os import path
 import numpy as np
 import random
 import json
-
+nltk.download('stopwords')
 stop_words = set(stopwords.words('spanish'))
 stemmer = SnowballStemmer("spanish")
 

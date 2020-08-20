@@ -1,5 +1,5 @@
-from app.chatbot.model_chatbot import *
-from app.chatbot.preprocessor import *
+from chatbot.model_chatbot import *
+from chatbot.preprocessor import *
 import os.path
 from os import path
 import sys

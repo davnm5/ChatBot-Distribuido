@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 
 import os
-from app.chatbot.app import *
+from chatbot.app import *
 
 app = Flask(__name__,
             static_url_path='', 
@@ -186,4 +186,4 @@ def property_delete(id):
     return property_schema.jsonify(property)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0')
