@@ -26,14 +26,14 @@
 4.- Resultados
 -----------------------
 
-![exactitud](results/accuracy.png)
+![exactitud](chat-dist/results/accuracy.png)
 
 
-![chat](results/chat.png)
+![chat](chat-dist/results/chat.png)
 
 
-![list](results/list.png)
+![list](chat-dist/results/list.png)
 
 
-![form](results/form.png)
+![form](chat-dist/results/form.png)
 
