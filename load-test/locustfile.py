@@ -1,11 +1,13 @@
 import time
 from locust import HttpUser, task, between
 
+with open("list_msg.txt") as f:
+    list_msg = f.read().splitlines()
+
 class QuickstartUser(HttpUser):
     wait_time = between(1, 2)
-    with open("list_msg") as f:
-        list_msg = f.read().splitlines()
-        
+    
+
     @task
     def index_page(self):
         self.client.get("/properties")
@@ -14,7 +16,7 @@ class QuickstartUser(HttpUser):
     @task(3)
     def view_item(self):
         for msg in list_msg:
-            self.client.get(f"/input?msg={msg}", name="/input")
+            self.client.get(f"/input/{msg}")
             time.sleep(1)
 
     def on_start(self):

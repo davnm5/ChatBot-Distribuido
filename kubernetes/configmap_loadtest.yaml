@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: loadtest-config
+data:
+  locust.conf: |               
+    locustfile = locustfile.py
+    headless = true
+    host = http://pc804.emulab.net:30597
+    run-time=10m
+    users = 1000
+    csv = output
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: list-msg
+data:
+  list_msg.txt: |
+    Busco una casa en Urdesa
+    Busco casa cerca de la ESPOL
+    Busco un departamento en alquiler
+    Sur
+    Norte
+    Hay en venta casas en Samborondon?
+    Venden casas en el Sur de Guayayquil?
+    Venden casas en el Norte de Guayaquil?
+    Busco una casa en la Kennedy
+    Alquilan casas en Ceibos?
+    Hay casas en venta en la Joya?
+    Hay casas en alquiler en Villa Club?
+    Alquilan Casas cerca del Malecón?
+
+
+
+    Venden casas en el Centro de la Ciudad?
+      

@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-loadtest
+  labels:
+    app: deployment-loadtest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deployment-loadtest
+  template:
+    metadata:
+      labels:
+        app: deployment-loadtest
+    spec:
+        containers:
+        - image: davnm5/loadtest:latest
+          name: loadtest
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 8089
+            hostPort: 8089
+          volumeMounts:
+           - mountPath: /loadtest/locust.conf
+             subPath: locust.conf
+             name: loadtest
+           - mountPath: /loadtest/list_msg.txt
+             subPath: list_msg.txt
+             name: mensajes
+        volumes:
+        - name: loadtest
+          configMap:
+            name: loadtest-config
+        - name: mensajes
+          configMap:
+            name: list-msg
+        nodeSelector:
+          beta.kubernetes.io/os: linux
+          nodelabel: loadtest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadtest-service
+  labels:
+    app: deployment-loadtest
+spec:
+  type: NodePort
+  ports:
+  - port: 8089
+    protocol: TCP
+    nodePort: 30002
+  selector:
+    app: deployment-loadtest
+    
+  

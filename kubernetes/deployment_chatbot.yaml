@@ -5,7 +5,7 @@ metadata:
   labels:
     app: deployment-chatbot
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
       app: deployment-chatbot
@@ -20,7 +20,9 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
           - containerPort: 5000
-            hostPort: 5000
+        nodeSelector:
+          beta.kubernetes.io/os: linux
+          nodelabel: app
 ---
 apiVersion: v1
 kind: Service
@@ -29,11 +31,11 @@ metadata:
   labels:
     app: deployment-chatbot
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
-  - port: 5000
+  - port: 30001
+    targetPort: 5000
     protocol: TCP
-    nodePort: 30001
   selector:
     app: deployment-chatbot
     

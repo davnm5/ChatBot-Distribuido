@@ -2,10 +2,10 @@
 
 1 - Crear entorno virtual
 -------------------------------
-* virtualenv -p python3 nombre_del_entorno
-* cd nombre_del_entorno
-* git clone https://github.com/Lu1sR/Chatbot
-* source bin/activate
+* git clone https://github.com/davnm5/ChatBot-Distribuido
+* cd ChatBot-Distribuido/chat-dist
+* virtualenv -p python3 venv
+* source venv/bin/activate
 
 2 - Instalar 
 ---------------
@@ -14,7 +14,8 @@
 
 3 - Iniciar
 ---------------
-* export FLASK_APP=app/main.py 
+* export FLASK_APP=app/main.py
+* export FLASK_ENV=development
 * flask run
 
 4 - Acceso
@@ -37,3 +38,11 @@
 
 ![form](chat-dist/results/form.png)
 
+5.- Documentación ChatBot-Distribuido (pendiente)
+------------------------------------------------
+
+
+
+6.- Autor:
+--------------------------
+José David Neira Martrus
